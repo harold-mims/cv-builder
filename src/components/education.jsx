@@ -18,7 +18,7 @@ class EducationExperience extends Component {
     const { className, major, institution, years} = this.props;
 
     return (
-      <div className="EducationWrapper">
+      <div className="EducationalExperienceWrapper">
         <MultilineEditable
           className={"MajorText " + className}
           defaultValue="Enter Your Major"
@@ -49,7 +49,7 @@ render() {
   const { education } = this.props;
 
   return (
-    <>
+    <div className="EducationWrapper">
     {education.length > 0 && <SectionHeader className="EducationHeader" defaultValue="Education" />}
       {education.map(() => {
         return (
@@ -61,7 +61,7 @@ render() {
           />
         );
       })}
-    </>
+    </div>
   );
 }}
 
