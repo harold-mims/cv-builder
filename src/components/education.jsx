@@ -2,7 +2,6 @@
 import { Component } from "react";
 import { SectionHeader } from "./boilerplate";
 import { MultilineEditable } from "./editableComponent";
-import uniqid from "uniqid";
 
 class EducationExperience extends Component {
   constructor(props) {
@@ -54,7 +53,7 @@ render() {
       {education.map(() => {
         return (
           <EducationExperience
-            key={uniqid()}
+            key={education.id}
             major={education.major}
             institution={education.institution}
             years={education.years}

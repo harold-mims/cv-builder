@@ -17,8 +17,23 @@ class App extends Component {
         count: 0,
       },
       education: [],
-      references: 1,
-      workExperience: 1,
+      individualReference: {
+        refName: "",
+        position: "",
+        contact: "",
+        id: uniqid(),
+        count: 0,
+      },
+      references: [],
+      workExperience: {
+        years: "",
+        position: "",
+        company: "",
+        description: "",
+        id: uniqid(),
+        count: 0,
+      },
+      workHistory: [],
       skills: 1,
     };
 
@@ -32,16 +47,11 @@ class App extends Component {
     this.setState({
       [argToStore]: this.state[argToStore].concat(this.state[valueToUpdate]),
       [valueToUpdate]: {
-        major: "",
-        institution: "",
-        years: "",
         count: this.state[valueToUpdate].count + 1,
         id: uniqid(),
       },
     });
     console.log("adding element");
-    console.log(this.state.educationalExperience);
-    console.log(this.state.education);
   }
 
   decValue(valueToUpdate, argToStore) {
@@ -56,8 +66,6 @@ class App extends Component {
         },
       });
       console.log("removing element");
-      console.log(this.state.educationalExperience);
-      console.log(this.state.education);
     }
   }
 
@@ -65,22 +73,26 @@ class App extends Component {
     return (
       <>
         <Navbar />
-        <Cv education={this.state.education} />
+        <Cv
+          education={this.state.education}
+          references={this.state.references}
+          workHistory={this.state.workHistory}
+        />
         <div className="add-btn-wrapper flexrow">
           <AddBtnSet
-            textValue={"Education " + this.state.educationalExperience.count}
+            textValue={"Education " + this.state.education.length}
             incValue={() => this.incValue("educationalExperience", "education")}
             decValue={() => this.decValue("educationalExperience", "education")}
           />
           <AddBtnSet
-            textValue={"References " + this.state.references}
-            incValue={() => this.incValue("references")}
-            decValue={() => this.decValue("references")}
+            textValue={"References " + this.state.references.length}
+            incValue={() => this.incValue("individualReference", "references")}
+            decValue={() => this.decValue("individualReference", "references")}
           />
           <AddBtnSet
-            textValue={"Work Experience " + this.state.workExperience}
-            incValue={() => this.incValue("workExperience")}
-            decValue={() => this.decValue("workExperience")}
+            textValue={"Work Experience " + this.state.workHistory.length}
+            incValue={() => this.incValue("workExperience", "workHistory")}
+            decValue={() => this.decValue("workExperience", "workHistory")}
           />
           <AddBtnSet
             textValue={"Skills " + this.state.skills}

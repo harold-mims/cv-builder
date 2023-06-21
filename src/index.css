@@ -116,9 +116,13 @@ h1 {
   width: 30%;
   background-color: rgb(47, 47, 56);
   color: lightgray;
+
+  justify-content: space-between;
 }
 .cvRightColumn {
   width: 70%;
+  justify-content: space-between;
+
 }
 
 /* CV Components Styling */

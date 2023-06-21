@@ -3,8 +3,9 @@ import AboutMe from "./aboutMe";
 import ContactInfo from "./contactInfo";
 import NameTitle from "./nameTitle";
 import { ChangableImage } from "./editableComponent";
-// eslint-disable-next-line no-unused-vars
 import Education from "./education";
+import References from "./references";
+import WorkHistory from "./workExperience";
 
 class Cv extends Component {
   constructor(props) {
@@ -14,13 +15,14 @@ class Cv extends Component {
 
   render() {
     // eslint-disable-next-line react/prop-types
-    const { education } = this.props;
+    const { education, references, workHistory} = this.props;
 
     return (
       <div className="cv-wrapper">
-        <div className="cvLeftColumn">
+        <div className="cvLeftColumn flexcol">
           <ChangableImage src="../../public/placeholder_icon.jpg" />
           <Education education={education}/>
+          <References references={references} />
           <div className="contactWrapper">
             <ContactInfo
               contactMethod="Phone"
@@ -40,9 +42,11 @@ class Cv extends Component {
             />
           </div>
         </div>
-        <div className="cvRightColumn">
+        <div className="cvRightColumn ">
           <NameTitle />
           <AboutMe />
+          <WorkHistory workHistory={workHistory} />
+
         </div>
       </div>
     );
