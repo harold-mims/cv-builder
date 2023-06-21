@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { MultilineEditable } from "./editableComponent";
 
 class ContactInfo extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class ContactInfo extends Component {
                     <div className="contactAccent"></div>
                     <p className="contactMethod">{contactMethod}</p>
                 </div>
-                <p className="contactInfo" contentEditable>{defaultValue}</p>
+                <MultilineEditable className="contactInfo" defaultValue={defaultValue} />
             </div>
         );
     }

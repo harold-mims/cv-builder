@@ -1,3 +1,9 @@
+html * {
+  font-size: 16px;
+  /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;*/
+  font-family: "Consolas", "Lucida Console", "Courier New", monospace;
+}
+
 body {
   margin: 0;
 
@@ -28,7 +34,7 @@ body {
 }
 
 .site-title {
-  font-size: 3.2em;
+  font-size: 3.2rem;
   line-height: 1.1;
 
   padding: 0.5rem;
@@ -40,7 +46,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3.2rem;
   line-height: 1.1;
 }
 
@@ -57,9 +63,30 @@ h1 {
   margin: 0;
 }
 
+::placeholder {
+  opacity: 1;
+  color: inherit;
+}
+
+.spacedLetters {
+  letter-spacing: 0.1rem;
+}
+
+/* Generic Flex Styling */
+.flexcol {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+}
+
 /* Start of the CV Styling */
 
 .cv-wrapper {
+  
   align-self: center;
   aspect-ratio: 8.5/11;
   border: 2px solid #242424;
@@ -87,7 +114,7 @@ h1 {
 
 /* CV Components Styling */
 .contactInfoWrapper {
-  margin: 1rem 0;
+  margin: 16px 0;
 }
 .contactMethodWrapper {
   background-color: #242424;
@@ -99,8 +126,8 @@ h1 {
 
 .contactAccent {
   background-color: gold;
-  width: 2rem;
-  margin-right: 1rem;
+  width: 32px;
+  margin-right: 16px;
 }
 
 .contactMethod,
@@ -109,6 +136,64 @@ h1 {
 }
 
 .contactInfo {
-  margin-left: 3rem;
+  margin-left: 48px;
   font-size: small;
+  width: calc(100% - 48px);
+  color: lightgray;
+}
+
+.inlineEditable,
+.multilineEditable {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.multilineEditable {
+  resize: none;
+  overflow: hidden;
+  min-height: fit-content;
+  max-height: 200px;
+}
+
+.inlineEditable:hover,
+.multilineEditable:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.sectionHeader {
+  font-size: 20px;
+}
+
+.nameTitle{
+  background-color: gold;
+  margin: 64px 0 32px 0;
+  padding: 48px;
+}
+
+.name {
+  font-size:40px;
+}
+
+.professionalTitle{
+  font-size: 20px;
+}
+
+.aboutMe {
+  width: 80%;
+  padding: 0 48px;
+}
+
+.aboutMeText {
+  width: 100%;
+  font-size: 12px;
+  height: 74px
+}
+
+.cv-image {
+  width: 100%;
+  object-fit: cover;
+  min-height: 240px;
+  max-height: 325px;
 }

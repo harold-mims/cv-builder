@@ -12,4 +12,16 @@ function Footer() {
 
 }
 
-export {Navbar, Footer}
+// eslint-disable-next-line react/prop-types
+function SectionHeader({className, defaultValue = "Section Header"}) {
+    return (
+        <>
+            <p className={"sectionHeader " + className}>
+            {defaultValue}    
+            </p>
+            <hr className="sectionHR"></hr>
+        </>
+    );
+}
+
+export {Navbar, Footer, SectionHeader}
