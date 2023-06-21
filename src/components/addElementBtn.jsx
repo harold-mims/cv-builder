@@ -11,25 +11,57 @@ class AddElementBtn extends Component {
     };
   }
 
-  onEdit = (e) => {
+  /*onEdit = (e) => {
     this.setState({
       textValue: e.target.value,
     });
-  };
+  };*/
+
+  updateValue(valueToUpdate) {
+    console.log(valueToUpdate);
+    console.log("clicked");
+  }
 
   render() {
     // eslint-disable-next-line react/prop-types
-    const { defaultValue, textValue, className } = this.props;
+    const { textValue, className, onClick } = this.props;
 
     return (
-      <input
-        className={"inlineEditable " + className}
-        onChange={this.onEdit}
-        value={textValue}
-        placeholder={defaultValue}
-      />
+      <button className={"addElementBtn " + className} onClick={onClick}>
+        {textValue}
+      </button>
     );
   }
 }
 
-export default AddElementBtn;
+class AddBtnSet extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      textValue: "",
+    };
+  }
+
+  render() {
+    // eslint-disable-next-line react/prop-types
+    const { className, textValue, incValue, decValue } = this.props;
+
+    return (
+      <div className={"btnWrapper flexcol"}>
+        <AddElementBtn
+          className={className}
+          textValue={"Add " + textValue}
+          onClick={incValue}
+        />
+        <AddElementBtn
+          className={className}
+          textValue={"Remove " + textValue}
+          onClick={decValue}
+        />
+      </div>
+    );
+  }
+}
+
+export { AddElementBtn, AddBtnSet };

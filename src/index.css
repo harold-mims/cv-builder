@@ -50,6 +50,15 @@ h1 {
   line-height: 1.1;
 }
 
+.add-btn-wrapper{
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  margin: 2rem;
+  margin-top:0;
+}
+
 .footer {
   background-color: #242424;
   color: white;
