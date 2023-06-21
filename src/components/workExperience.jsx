@@ -58,7 +58,7 @@ class WorkHistory extends Component {
     return (
       <div className="WorkHistoryWrapper">
         {workHistory.length > 0 && (
-          <SectionHeader className="EducationHeader" defaultValue="Education" />
+          <SectionHeader className="WorkHistoryHeder" defaultValue="Work Experience" />
         )}
         {workHistory.map(() => {
           return (
