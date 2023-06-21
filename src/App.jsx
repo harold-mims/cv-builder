@@ -34,7 +34,13 @@ class App extends Component {
         count: 0,
       },
       workHistory: [],
-      skills: 1,
+      skill: {
+        skillName: "",
+        familiarity: "",
+        id: uniqid(),
+        count: 0,
+      },
+      skills: [],
     };
 
     this.incValue = this.incValue.bind(this);
@@ -77,6 +83,7 @@ class App extends Component {
           education={this.state.education}
           references={this.state.references}
           workHistory={this.state.workHistory}
+          skills={this.state.skills}
         />
         <div className="add-btn-wrapper flexrow">
           <AddBtnSet
@@ -95,9 +102,9 @@ class App extends Component {
             decValue={() => this.decValue("workExperience", "workHistory")}
           />
           <AddBtnSet
-            textValue={"Skills " + this.state.skills}
-            incValue={() => this.incValue("skills")}
-            decValue={() => this.decValue("skills")}
+            textValue={"Skills " + this.state.skills.length}
+            incValue={() => this.incValue("skill", "skills")}
+            decValue={() => this.decValue("skill", "skills")}
           />
         </div>
         <Footer />

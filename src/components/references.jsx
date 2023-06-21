@@ -2,7 +2,6 @@
 import { Component } from "react";
 import { SectionHeader } from "./boilerplate";
 import { MultilineEditable } from "./editableComponent";
-import uniqid from "uniqid";
 
 class IndividualReference extends Component {
   constructor(props) {
@@ -54,7 +53,7 @@ render() {
       {references.map(() => {
         return (
           <IndividualReference
-            key={uniqid()}
+            key={references.id}
             refName={references.refName}
             position={references.position}
             contact={references.contact}
