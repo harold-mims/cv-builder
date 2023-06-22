@@ -1,7 +1,5 @@
 import { Component } from "react";
 
-// https://www.freepik.com/free-psd/clean-modern-resume-cv-template_14721872.htm#query=cv%20template&position=0&from_view=keyword&track=ais
-
 class InlineEditable extends Component {
   constructor(props) {
     super(props);

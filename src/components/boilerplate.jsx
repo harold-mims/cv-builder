@@ -1,6 +1,6 @@
 function Navbar() {
     return <nav className="nav">
-        <a href="/" className="site-title">Site Name</a>
+        <a href="/" className="site-title">CV Creater</a>
     </nav>
 
 }
