@@ -36,7 +36,7 @@ class WorkExperience extends Component {
           />
           <MultilineEditable
             className={"WorkDesc " + className}
-            defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae efficitur odio. Ut fringilla, neque sed eleifend semper, sem eros fermentum velit."
+            defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae efficitur odio. Ut fringilla, neque sed eleifend semper."
             value={description != "" ? description : ""}
           />
           

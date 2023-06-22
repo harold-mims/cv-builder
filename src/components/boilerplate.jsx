@@ -1,3 +1,5 @@
+import { MultilineEditable } from "./editableComponent";
+
 function Navbar() {
   return (
     <nav className="nav">
@@ -24,7 +26,12 @@ function Footer() {
 function SectionHeader({ className, defaultValue = "Section Header" }) {
   return (
     <>
-      <p className={"sectionHeader " + className}>{defaultValue}</p>
+      <MultilineEditable
+        className={"sectionHeader " + className}
+        defaultValue={defaultValue}
+      >
+        {defaultValue}
+      </MultilineEditable>
       <hr className={"sectionHR " + className}></hr>
     </>
   );
