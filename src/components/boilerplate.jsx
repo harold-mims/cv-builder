@@ -1,27 +1,33 @@
 function Navbar() {
-    return <nav className="nav">
-        <a href="/" className="site-title">CV Creater</a>
+  return (
+    <nav className="nav">
+      <a href="/" className="site-title" style={{ alignSelf: "center" }}>
+        CV Creater
+      </a>
+      <a
+        href="https://github.com/harold-mims/cv-builder/tree/main"
+        className="githubLink"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Github
+      </a>
     </nav>
-
+  );
 }
 
 function Footer() {
-    return <p className="footer">
-        Copyright @ The Odin Project 2023
-    </p>
-
+  return <p className="footer">Copyright @ The Odin Project 2023</p>;
 }
 
 // eslint-disable-next-line react/prop-types
-function SectionHeader({className, defaultValue = "Section Header"}) {
-    return (
-        <>
-            <p className={"sectionHeader " + className}>
-            {defaultValue}    
-            </p>
-            <hr className={"sectionHR " + className}></hr>
-        </>
-    );
+function SectionHeader({ className, defaultValue = "Section Header" }) {
+  return (
+    <>
+      <p className={"sectionHeader " + className}>{defaultValue}</p>
+      <hr className={"sectionHR " + className}></hr>
+    </>
+  );
 }
 
-export {Navbar, Footer, SectionHeader}
+export { Navbar, Footer, SectionHeader };

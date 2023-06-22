@@ -47,6 +47,13 @@ class App extends Component {
     this.decValue = this.decValue.bind(this);
   }
 
+  componentDidMount() {
+    this.incValue("educationalExperience", "education");
+    this.incValue("individualReference", "references");
+    this.incValue("workExperience", "workHistory");
+    this.incValue("skill", "skills");
+  }
+
   incValue(valueToUpdate, argToStore) {
     console.log(this.state.education);
 
@@ -61,7 +68,8 @@ class App extends Component {
   }
 
   decValue(valueToUpdate, argToStore) {
-    if (this.state[valueToUpdate].count > 0) {
+    console.log(this.state[argToStore])
+    if (this.state[argToStore].length > 0) {
       this.setState({
         [argToStore]: this.state[argToStore].filter(
           (_, i) => i !== this.state[valueToUpdate].count - 1
