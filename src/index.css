@@ -188,6 +188,7 @@ h1 {
 }
 
 .sectionHeader {
+  width: 100%;
   font-size: 20px;
 }
 
@@ -221,6 +222,8 @@ h1 {
   object-fit: cover;
   min-height: 240px;
   max-height: 325px;
+
+  cursor: pointer;
 }
 
 .EducationWrapper,
@@ -291,6 +294,8 @@ h1 {
   font-size: 14px;
   margin: 4px;
 }
+
+
 
 input[type="range"] {
   -webkit-appearance: none;

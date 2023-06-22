@@ -87,6 +87,7 @@ class App extends Component {
     return (
       <>
         <Navbar />
+        <p style={{alignSelf:"center"}}>To begin editing your CV click on any item below</p>
         <Cv
           education={this.state.education}
           references={this.state.references}
