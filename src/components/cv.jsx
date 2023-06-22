@@ -20,7 +20,7 @@ class Cv extends Component {
     return (
       <div className="cv-wrapper">
         <div className="cvLeftColumn flexcol">
-          <ChangableImage src="../../public/placeholder_icon.jpg" />
+          <ChangableImage src="./placeholder_icon.jpg" />
           <Education education={education} />
           <References references={references} />
           <div className="contactWrapper">
