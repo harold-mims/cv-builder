@@ -50,13 +50,13 @@ h1 {
   line-height: 1.1;
 }
 
-.add-btn-wrapper{
+.add-btn-wrapper {
   justify-content: center;
   align-items: center;
   gap: 16px;
 
   margin: 2rem;
-  margin-top:0;
+  margin-top: 0;
 }
 
 .footer {
@@ -92,17 +92,20 @@ h1 {
   flex-direction: row;
 }
 
+.flexwrap {
+  flex-wrap: wrap;
+}
+
 /* Start of the CV Styling */
 
 .cv-wrapper {
-  
   align-self: center;
-  aspect-ratio: 8.5/11;
+  /*aspect-ratio: auto 8.5/11;*/
   border: 2px solid #242424;
   border-radius: 0.2rem;
 
-  --resume-page-width: 816px;
-  width: var(--resume-page-width);
+  width: 816px;
+  min-height: 1056px;
 
   margin: 2rem;
 
@@ -112,20 +115,23 @@ h1 {
 }
 
 .cvLeftColumn {
-
   width: 30%;
   background-color: rgb(47, 47, 56);
-  color: lightgray;
+  color: whitesmoke;
 
   justify-content: space-between;
 }
+
 .cvRightColumn {
   width: 70%;
   justify-content: space-between;
-
 }
 
 /* CV Components Styling */
+.contactWrapper {
+  margin-bottom: 24px;
+}
+
 .contactInfoWrapper {
   margin: 16px 0;
 }
@@ -160,6 +166,7 @@ h1 {
   background-color: transparent;
   border: 0;
   padding: 0;
+  color: inherit;
 }
 
 .multilineEditable {
@@ -179,17 +186,17 @@ h1 {
   font-size: 20px;
 }
 
-.nameTitle{
+.nameTitle {
   background-color: gold;
   margin: 64px 0 32px 0;
   padding: 48px;
 }
 
 .name {
-  font-size:40px;
+  font-size: 40px;
 }
 
-.professionalTitle{
+.professionalTitle {
   font-size: 20px;
 }
 
@@ -201,7 +208,7 @@ h1 {
 .aboutMeText {
   width: 100%;
   font-size: 12px;
-  height: 74px
+  height: 74px;
 }
 
 .cv-image {
@@ -209,4 +216,124 @@ h1 {
   object-fit: cover;
   min-height: 240px;
   max-height: 325px;
+}
+
+.EducationWrapper,
+.ReferencesWrapper {
+  margin-left: 32px;
+}
+
+.EducationWrapper hr,
+.ReferencesWrapper hr {
+  border-color: gold;
+}
+
+.EducationalExperienceWrapper,
+.IndividualReferenceWrapper {
+  margin: 16px;
+}
+
+.UniversityName,
+.YearsAttended,
+.refPosition,
+.refContact {
+  font-size: small;
+  width: 100%;
+  margin: 4px 0px;
+}
+
+.WorkHistoryWrapper,
+.SkillsSectionWrapper {
+  margin: 0px 48px;
+}
+
+.SkillsSectionWrapper {
+  margin-bottom: 48px;
+}
+
+.WorkExperienceWrapper {
+  margin: 16px 0px;
+}
+
+.WorkDescription {
+  width: 100%;
+}
+
+.CompanyName,
+.WorkDesc {
+  font-size: 12px;
+}
+
+.WorkDesc {
+  height: 48px;
+  margin: 8px 0px;
+}
+
+.SkillsWrapper {
+  margin-left: 128px;
+  column-gap: 32px;
+  row-gap: 8px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.SkillWrapper {
+  width: 144px;
+}
+
+.SkillNameText {
+  font-size: 14px;
+  margin: 4px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #a5a5a5;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+input[type="range"]:hover {
+  opacity: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: rgb(47, 47, 56);
+  cursor: pointer;
+
+  box-shadow: -407px 0 0 400px rgb(47, 47, 56);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: rgb(47, 47, 56);
+  border-color: rgb(47, 47, 56);
+  cursor: pointer;
+}
+
+
+input[type="range"]::-moz-range-progress {
+  height: 6px;
+  border-radius: 3px;
+  background-color: rgb(47, 47, 56);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
 }

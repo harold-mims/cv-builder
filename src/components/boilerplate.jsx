@@ -19,7 +19,7 @@ function SectionHeader({className, defaultValue = "Section Header"}) {
             <p className={"sectionHeader " + className}>
             {defaultValue}    
             </p>
-            <hr className="sectionHR"></hr>
+            <hr className={"sectionHR " + className}></hr>
         </>
     );
 }

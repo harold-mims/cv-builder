@@ -9,7 +9,7 @@ class AboutMe extends Component {
         <SectionHeader className="aboutMeHeader" defaultValue="About Me" />
         <MultilineEditable
           className="aboutMeText"
-          defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae efficitur odio. Ut fringilla, neque sed eleifend semper, sem eros fermentum velit, vehicula lobortis lacus tellus at ante. Nunc eget libero sem. Curabitur sollicitudin, orci eget tempor faucibus, sem urna lacinia tortor, et rutrum metus nunc eget magna."
+          defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae efficitur odio. Ut fringilla, neque sed eleifend semper, sem eros fermentum velit, vehicula lobortis lacus tellus at ante. Nunc eget libero sem."
         />
       </div>
     );

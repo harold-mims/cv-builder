@@ -17,13 +17,13 @@ class Skill extends Component {
     const { className, skillName, familiarity} = this.props;
 
     return (
-      <div className="SkillWrapper">
+      <div className="SkillWrapper flexcol">
         <MultilineEditable
-          className={"refNameText " + className}
+          className={"SkillNameText " + className}
           defaultValue="Skill Name"
           value={skillName != "" ? skillName : ""}
         />
-        <input type="range" min="0" max="100" value={familiarity}/>
+        <input className={"SkillFamiliarity " + className} type="range" min="0" max="100" value={familiarity}/>
       </div>
     );
   }
@@ -39,8 +39,9 @@ render() {
   const { skills } = this.props;
 
   return (
-    <div className="ReferencesWrapper">
+    <div className="SkillsSectionWrapper">
     {skills.length > 0 && <SectionHeader className="ReferencesHeader" defaultValue="Skills" />}
+    <div className="SkillsWrapper flexrow flexwrap">
       {skills.map(() => {
         return (
           <Skill
@@ -50,6 +51,7 @@ render() {
           />
         );
       })}
+      </div>
     </div>
   );
 }}

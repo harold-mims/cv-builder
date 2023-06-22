@@ -42,7 +42,7 @@ class Cv extends Component {
             />
           </div>
         </div>
-        <div className="cvRightColumn ">
+        <div className="cvRightColumn flexcol">
           <NameTitle />
           <AboutMe />
           <WorkHistory workHistory={workHistory} />

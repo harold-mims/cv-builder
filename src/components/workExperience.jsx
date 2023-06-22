@@ -17,7 +17,7 @@ class WorkExperience extends Component {
     const { className, years, position, company, description } = this.props;
 
     return (
-      <div className="EducationalExperienceWrapper flexrow">
+      <div className="WorkExperienceWrapper flexrow">
         <MultilineEditable
             className={"YearsWorked " + className}
             defaultValue="20xx-20xx"
@@ -36,7 +36,7 @@ class WorkExperience extends Component {
           />
           <MultilineEditable
             className={"WorkDesc " + className}
-            defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae efficitur odio. Ut fringilla, neque sed eleifend semper, sem eros fermentum velit, vehicula lobortis lacus tellus at ante. Nunc eget libero sem. Curabitur sollicitudin, orci eget tempor faucibus, sem urna lacinia tortor, et rutrum metus nunc eget magna."
+            defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae efficitur odio. Ut fringilla, neque sed eleifend semper, sem eros fermentum velit."
             value={description != "" ? description : ""}
           />
           

@@ -24,12 +24,12 @@ class IndividualReference extends Component {
           value={refName != "" ? refName : ""}
         />
         <MultilineEditable
-          className="UniversityName"
+          className="refPosition"
           defaultValue="Position | Company"
           value={position != "" ? position : ""}
         />
         <MultilineEditable
-          className="YearsAttended"
+          className="refContact"
           defaultValue="T: (555) 555-5555"
           value={contact != "" ? contact : ""}
         />
