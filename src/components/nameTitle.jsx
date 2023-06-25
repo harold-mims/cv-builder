@@ -1,8 +1,6 @@
-import { Component } from "react";
 import { MultilineEditable } from "./editableComponent";
 
-class NameTitle extends Component {
-  render() {
+function NameTitle() {
     return (
       <div className="nameTitle flexcol">
         <MultilineEditable
@@ -15,7 +13,7 @@ class NameTitle extends Component {
         />
       </div>
     );
-  }
+
 }
 
 export default NameTitle;

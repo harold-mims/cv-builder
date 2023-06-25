@@ -1,20 +1,8 @@
 /* eslint-disable react/prop-types */
-import { Component } from "react";
 import { SectionHeader } from "./boilerplate";
 import { MultilineEditable } from "./editableComponent";
 
-class EducationExperience extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      textValue: "",
-    };
-  }
-
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const { className, major, institution, years} = this.props;
+function EducationExperience ({ className, major, institution, years }) {
 
     return (
       <div className="EducationalExperienceWrapper">
@@ -36,20 +24,14 @@ class EducationExperience extends Component {
       </div>
     );
   }
-}
 
-class Education extends Component {
-constructor(props) {
-    super(props)
-}
 
-render() {
-  // eslint-disable-next-line react/prop-types
-  const { education } = this.props;
-
+function Education({ education }) {
   return (
     <div className="EducationWrapper">
-    {education.length > 0 && <SectionHeader className="EducationHeader" defaultValue="Education" />}
+      {education.length > 0 && (
+        <SectionHeader className="EducationHeader" defaultValue="Education" />
+      )}
       {education.map(() => {
         return (
           <EducationExperience
@@ -62,6 +44,6 @@ render() {
       })}
     </div>
   );
-}}
+}
 
 export default Education;
