@@ -1,125 +1,113 @@
-import { Component } from "react";
+/* eslint-disable no-unused-vars */
+import { useState, useEffect } from "react";
 import { Navbar, Footer } from "./components/boilerplate.jsx";
 import Cv from "./components/cv.jsx";
 import { AddBtnSet } from "./components/addElementBtn.jsx";
 import uniqid from "uniqid";
 
-class App extends Component {
-  constructor() {
-    super();
+function App() {
+  const [education, setEducation] = useState([]);
+  const [references, setReferences] = useState([]);
+  const [workHistory, setWorkHistory] = useState([]);
+  const [skills, setSkills] = useState([]);
 
-    this.state = {
-      educationalExperience: {
-        major: "",
-        institution: "",
-        years: "",
-        id: uniqid(),
-        count: 0,
-      },
-      education: [],
-      individualReference: {
-        refName: "",
-        position: "",
-        contact: "",
-        id: uniqid(),
-        count: 0,
-      },
-      references: [],
-      workExperience: {
-        years: "",
-        position: "",
-        company: "",
-        description: "",
-        id: uniqid(),
-        count: 0,
-      },
-      workHistory: [],
-      skill: {
-        skillName: "",
-        familiarity: "",
-        id: uniqid(),
-        count: 0,
-      },
-      skills: [],
+  function educationalExperience() {
+    return {
+      major: "",
+      institution: "",
+      years: "",
+      id: uniqid(),
     };
-
-    this.incValue = this.incValue.bind(this);
-    this.decValue = this.decValue.bind(this);
   }
 
-  componentDidMount() {
-    this.incValue("educationalExperience", "education");
-    this.incValue("individualReference", "references");
-    this.incValue("workExperience", "workHistory");
-    this.incValue("skill", "skills");
+  function individualReference() {
+    return {
+      refName: "",
+      position: "",
+      contact: "",
+      id: uniqid(),
+    };
   }
 
-  incValue(valueToUpdate, argToStore) {
-    console.log(this.state.education);
+  function workExperience() {
+    return {
+      years: "",
+      position: "",
+      company: "",
+      description: "",
+      id: uniqid(),
+    };
+  }
 
-    this.setState({
-      [argToStore]: this.state[argToStore].concat(this.state[valueToUpdate]),
-      [valueToUpdate]: {
-        count: this.state[valueToUpdate].count + 1,
-        id: uniqid(),
-      },
-    });
+  function skill() {
+    return {
+      skillName: "",
+      familiarity: "",
+      id: uniqid(),
+    };
+  }
+
+  useEffect(() => {
+    incValue(educationalExperience(), education, setEducation);
+    incValue(individualReference(), references, setReferences);
+    incValue(workExperience(), workHistory, setWorkHistory);
+    incValue(skill(), skills, setSkills);
+  }, []);
+
+  function incValue(factory, valueToUpdate, argToStore) {
+    console.log(valueToUpdate);
+    argToStore(valueToUpdate.concat(factory));
     console.log("adding element");
   }
 
-  decValue(valueToUpdate, argToStore) {
-    console.log(this.state[argToStore])
-    if (this.state[argToStore].length > 0) {
-      this.setState({
-        [argToStore]: this.state[argToStore].filter(
-          (_, i) => i !== this.state[valueToUpdate].count - 1
-        ),
-        [valueToUpdate]: {
-          count: this.state[valueToUpdate].count - 1,
-          id: uniqid(),
-        },
-      });
+  function decValue(valueToUpdate, argToStore) {
+    console.log(valueToUpdate);
+    if (argToStore.length > 0) {
+      console.log("attempting to remove element");
+      argToStore(valueToUpdate.slice(0, -1));
+      console.log(valueToUpdate);
+
       console.log("removing element");
     }
   }
 
-  render() {
-    return (
-      <>
-        <Navbar />
-        <p style={{alignSelf:"center"}}>To begin editing your CV click on any item below</p>
-        <Cv
-          education={this.state.education}
-          references={this.state.references}
-          workHistory={this.state.workHistory}
-          skills={this.state.skills}
+  return (
+    <>
+      <Navbar />
+      <p style={{ alignSelf: "center" }}>
+        To begin editing your CV click on any item below
+      </p>
+      <Cv
+        education={education}
+        references={references}
+        workHistory={workHistory}
+        skills={skills}
+      />
+      <div className="add-btn-wrapper flexrow">
+        <AddBtnSet
+          textValue={"Education " + education.length}
+          incValue={() => incValue(educationalExperience, education, setEducation)}
+          decValue={() => decValue(education, setEducation)}
         />
-        <div className="add-btn-wrapper flexrow">
-          <AddBtnSet
-            textValue={"Education " + this.state.education.length}
-            incValue={() => this.incValue("educationalExperience", "education")}
-            decValue={() => this.decValue("educationalExperience", "education")}
-          />
-          <AddBtnSet
-            textValue={"References " + this.state.references.length}
-            incValue={() => this.incValue("individualReference", "references")}
-            decValue={() => this.decValue("individualReference", "references")}
-          />
-          <AddBtnSet
-            textValue={"Work Experience " + this.state.workHistory.length}
-            incValue={() => this.incValue("workExperience", "workHistory")}
-            decValue={() => this.decValue("workExperience", "workHistory")}
-          />
-          <AddBtnSet
-            textValue={"Skills " + this.state.skills.length}
-            incValue={() => this.incValue("skill", "skills")}
-            decValue={() => this.decValue("skill", "skills")}
-          />
-        </div>
-        <Footer />
-      </>
-    );
-  }
+        <AddBtnSet
+          textValue={"References " + references.length}
+          incValue={() => incValue(individualReference, references, setReferences)}
+          decValue={() => decValue(references, setReferences)}
+        />
+        <AddBtnSet
+          textValue={"Work Experience " + workHistory.length}
+          incValue={() => incValue(workExperience, workHistory, setWorkHistory)}
+          decValue={() => decValue(workHistory, setWorkHistory)}
+        />
+        <AddBtnSet
+          textValue={"Skills " + skills.length}
+          incValue={() => incValue(skill, skills, setSkills)}
+          decValue={() => decValue(skills, setSkills)}
+        />
+      </div>
+      <Footer />
+    </>
+  );
 }
 
 export default App;

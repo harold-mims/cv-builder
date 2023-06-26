@@ -1,103 +1,69 @@
-import { Component } from "react";
+/* eslint-disable react/prop-types */
+import {useState, useEffect} from 'react';
 
-class InlineEditable extends Component {
-  constructor(props) {
-    super(props);
+function InlineEditable({ defaultValue, className }) {
+  const [textValue, setTextValue] = useState("");
 
-    this.state = {
-      textValue: "",
-    };
-  }
-
-  onEdit = (e) => {
-    this.setState({
-      textValue: e.target.value,
-    });
+  const onEdit = (e) => {
+    setTextValue(e.target.value)
   };
 
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const { defaultValue, textValue, className } = this.props;
-
-    return (
+ return (
       <input
         className={"inlineEditable " + className}
-        onChange={this.onEdit}
+        onChange={onEdit}
         value={textValue}
         placeholder={defaultValue}
       />
     );
-  }
 }
 
-class MultilineEditable extends Component {
-  constructor(props) {
-    super(props);
+function MultilineEditable({ defaultValue, className }) {
+  const [textValue, setTextValue] = useState("");
 
-    this.state = {
-      textValue: "",
-    };
-  }
+  useEffect(() => {
+      onInput;
+    
+  }, []);
 
-  onEdit = (e) => {
-    this.setState({
-      textValue: e.target.value,
-    });
-
-    console.log(e);
+  const onEdit = (e) => {
+    setTextValue(e.target.value)
   };
 
-  onKeyDown = (e) => {
+  const onKeyDown = (e) => {
     if (e.key === "Escape") {
       e.target.blur();
     }
   };
 
-  onInput = (e) => {
+  const onInput = (e) => {
     e.target.style.height = "5px";
     e.target.style.height = e.target.scrollHeight + "px";
   };
-
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const { defaultValue, textValue, className } = this.props;
 
     return (
       <textarea
         rows={1}
         className={"multilineEditable " + className}
-        onChange={this.onEdit}
-        onKeyDown={this.onKeyDown}
-        onInput={this.onInput}
+        onChange={onEdit}
+        onKeyDown={onKeyDown}
+        onInput={onInput}
         value={textValue}
         placeholder={defaultValue}
       />
     );
-  }
+  
 }
 
-class ChangableImage extends Component {
-  constructor() {
-    super();
+function ChangableImage ({ className, src }) {
+  const [imgURL, setImgUrl] = useState("")
 
-    this.state = {
-        imgURL: "",
-    };
-  }
-
-  changeImage = (e) => {
+  const changeImage = (e) => {
     if (e.target.files.length) {
-      this.setState({
-          imgURL: URL.createObjectURL(e.target.files[0]),
-      });
+      setImgUrl(URL.createObjectURL(e.target.files[0]))
       console.log(URL.createObjectURL(e.target.files[0]));
     }
   };
-
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const { className, src } = this.props;
-    const { imgURL } = this.state;
 
     return (
       <>
@@ -111,11 +77,11 @@ class ChangableImage extends Component {
           type="file"
           id="change-img-btn"
           style={{ display: "none" }}
-          onChange={this.changeImage}
+          onChange={changeImage}
         />
       </>
     );
-  }
+  
 }
 
 export { InlineEditable, MultilineEditable, ChangableImage };

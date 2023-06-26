@@ -1,9 +1,7 @@
-import { Component } from "react";
 import { SectionHeader } from "./boilerplate";
 import { MultilineEditable } from "./editableComponent";
 
-class AboutMe extends Component {
-  render() {
+function AboutMe() {
     return (
       <div className="aboutMe">
         <SectionHeader className="aboutMeHeader" defaultValue="About Me" />
@@ -13,7 +11,7 @@ class AboutMe extends Component {
         />
       </div>
     );
-  }
+  
 }
 
 export default AboutMe;
